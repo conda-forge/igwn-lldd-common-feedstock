@@ -20,12 +20,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.6,<3.12
     - setuptools >=38.2.5
   run:
     - configargparse
     - gpstime
-    - python >=3.6
+    - python >=3.6,<3.12
     - python-confluent-kafka
     - ujson
     - watchdog
