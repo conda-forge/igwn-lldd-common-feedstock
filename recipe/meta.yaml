@@ -1,5 +1,5 @@
 {% set name = "igwn-lldd-common" %}
-{% set version = "0.2.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a65b8dfee09680cbd8bbf82c97db0a669fe0e63f08eb163da747ee78fbd7e532
+  sha256: 1e2b4dcf1145bbd1c40b0a72b1f62dd75fcfafa46374819aeead172e1afc7ff3
 
 build:
   entry_points:
@@ -20,15 +20,16 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.6,<3.12
     - setuptools >=38.2.5
   run:
     - configargparse
     - gpstime
-    - python >=3.6
+    - python >=3.6,<3.12
     - python-confluent-kafka
     - ujson
     - watchdog
+    - python-framel >=8.47.2
 
 test:
   requires:
