@@ -29,6 +29,7 @@ requirements:
     - python-confluent-kafka
     - ujson
     - watchdog
+    - python-framel >=8.47.2
 
 test:
   requires:
