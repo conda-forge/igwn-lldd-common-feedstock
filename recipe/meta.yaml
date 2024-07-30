@@ -36,7 +36,7 @@ requirements:
 test:
   requires:
     - flaky
-    - kafka-python
+    - kafka-python-ng
     - pip
     - pytest
   commands:
