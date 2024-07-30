@@ -13,21 +13,21 @@ build:
   entry_points:
     - kafka2frame = igwn_lldd_common.kafka2frame:main
     - frame2kafka = igwn_lldd_common.frame2kafka:main
-  number: 3
+  number: 4
   noarch: python
   script: {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   host:
     - pip
-    - python >=3.6,<3.12
+    - python >=3.6
     - setuptools >=38.2.5
   run:
     - __unix  # [unix]
     - __win  # [win]
     - configargparse
     - gpstime
-    - python >=3.6,<3.12
+    - python >=3.6
     - python-confluent-kafka
     - ujson
     - watchdog
@@ -36,7 +36,7 @@ requirements:
 test:
   requires:
     - flaky
-    - kafka-python
+    - kafka-python-ng
     - pip
     - pytest
   commands:
