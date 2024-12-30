@@ -6,28 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 1e2b4dcf1145bbd1c40b0a72b1f62dd75fcfafa46374819aeead172e1afc7ff3
 
 build:
   entry_points:
     - kafka2frame = igwn_lldd_common.kafka2frame:main
     - frame2kafka = igwn_lldd_common.frame2kafka:main
-  number: 4
+  number: 5
   noarch: python
   script: {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools >=38.2.5
   run:
     - __unix  # [unix]
     - __win  # [win]
     - configargparse
     - gpstime
-    - python >=3.6
+    - python >={{ python_min }}
     - python-confluent-kafka
     - ujson
     - watchdog
@@ -39,6 +39,7 @@ test:
     - kafka-python-ng
     - pip
     - pytest
+    - python {{ python_min }}
   commands:
     # check metadata
     - python -m pip check igwn-lldd-common
