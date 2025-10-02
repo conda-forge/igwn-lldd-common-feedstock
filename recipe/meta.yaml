@@ -1,19 +1,19 @@
 {% set name = "igwn-lldd-common" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1e2b4dcf1145bbd1c40b0a72b1f62dd75fcfafa46374819aeead172e1afc7ff3
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 29d50910ae189b82e279c211f34867174f61a54d8a170421e94ed6f84c8e0aa0
 
 build:
   entry_points:
     - kafka2frame = igwn_lldd_common.kafka2frame:main
     - frame2kafka = igwn_lldd_common.frame2kafka:main
-  number: 5
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vvv
 
